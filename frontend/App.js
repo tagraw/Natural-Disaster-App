@@ -3,6 +3,17 @@ import { StyleSheet, Text, View } from 'react-native';
 import fetchDisasterInfo from './api/disasterApi';
 import { useState, useEffect } from 'react';
 import * as Location from 'expo-location';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+import HomeScreen from './screens/HomeScreen';
+import MapScreen from './screens/MapScreen';
+import AIScreen from './screens/AIScreen';
+import PackScreen from './screens/PackScreen';
+
+const Stack = createNativeStackNavigator();
+
 
 export default function App() {
 
@@ -24,10 +35,14 @@ export default function App() {
     getPermissions();
   },[])
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Map" component={MapScreen} />
+        <Stack.Screen name="AI Assistant" component={AIScreen} />
+        <Stack.Screen name="Pack" component={PackScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
