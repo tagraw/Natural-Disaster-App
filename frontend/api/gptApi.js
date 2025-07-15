@@ -1,3 +1,4 @@
+
 const API_URL = "http://192.168.0.154:5000/chat"; // Replace with your local or deployed Flask URL
 
 const sendMessageToGPT = async (message) => {
@@ -11,6 +12,7 @@ const sendMessageToGPT = async (message) => {
     });
 
     const data = await response.json();
+     console.log("Full GPT API data:", data);
     return data.response;
   } catch (error) {
     console.error("GPT API Error:", error);

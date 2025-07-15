@@ -18,7 +18,9 @@ const AIScreen = () => {
 
   const handleSend = async () => {
     if (!input.trim()) return;
+    console.log("Sending:", input);
     const reply = await sendMessageToGPT(input);
+    console.log("GPT reply:", reply);
     setResponse(reply);
     setInput("");
   };
