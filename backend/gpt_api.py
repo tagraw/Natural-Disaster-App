@@ -4,7 +4,7 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 
-load_dotenv(dotenv_path="C:/Users/agraw/disaster-safe/backend/.env")
+load_dotenv(dotenv_path="C:/Users/agraw/disaster-safe/.env")
 
 app = Flask(__name__)
 CORS(app)
