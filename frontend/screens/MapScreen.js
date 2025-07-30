@@ -30,11 +30,21 @@ export default function MapScreen({ location }) {
     longitude: location.coords.longitude,
   };
 
+    const handleEvacuationRoute = () => {
+  const distanceInDegrees = 0.3; // approx 30 km northward
+
+  setDestination({
+    latitude: userCoords.latitude + distanceInDegrees,
+    longitude: userCoords.longitude,
+  });
+
+  setShowDirections(true);
+};
 
   const handleFindShelters = async () => {
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userCoords.latitude},${userCoords.longitude}&radius=10000&type=point_of_interest&keyword=shelter&key=${GOOGLE_MAPS_API_KEY}`
+        `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${userCoords.latitude},${userCoords.longitude}&radius=10000&type=point_of_interest&keyword=people-shelter&key=${GOOGLE_MAPS_API_KEY}`
       );
       const data = await response.json();
       setShelters(data.results);
