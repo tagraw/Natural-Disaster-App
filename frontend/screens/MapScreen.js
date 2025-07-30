@@ -30,16 +30,6 @@ export default function MapScreen({ location }) {
     longitude: location.coords.longitude,
   };
 
-  const handleEvacuationRoute = () => {
-  const distanceInDegrees = 0.3; // approx 30 km northward
-
-  setDestination({
-    latitude: userCoords.latitude + distanceInDegrees,
-    longitude: userCoords.longitude,
-  });
-
-  setShowDirections(true);
-};
 
   const handleFindShelters = async () => {
     try {
