@@ -63,7 +63,9 @@ export default function App() {
         }) }
       >
         <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Map" component={MapScreen} />
+        <Tab.Screen name="Map">
+          {() => <MapScreen location={location} />}
+        </Tab.Screen>
         <Tab.Screen name="AI Assistant" component={AIScreen} />
         <Tab.Screen name="Pack" component={PackScreen} />
       </Tab.Navigator>
